@@ -14,6 +14,8 @@ export default Vue.extend({
 })
 </script>
 
-<style>
-    /*每个页面公共css */
+<style lang="scss">
+page {
+  font-size: 28rpx;
+}
 </style>
