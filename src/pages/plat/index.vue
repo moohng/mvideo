@@ -18,7 +18,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    webviewStyle() {
+    webviewStyle(): string {
       return `height: ${this.webviewHeight}px`
     },
   },
