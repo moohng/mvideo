@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
-		<uni-search-bar v-model="searchValue" placeholder="输入名称或url" :radius="100" cancelButton="none" bgColor="#fff" @confirm="onSearch"></uni-search-bar>
+		<view class="logo">欢迎</view>
+		<uni-search-bar v-model="searchValue" placeholder="输入视频链接" :radius="100" cancelButton="none" bgColor="#fff" @confirm="onSearch"></uni-search-bar>
 		<view class="plat-list">
 			<view class="word" v-for="item, index in platList" :key="index" @click="onOpen(item)">{{ item.name }}</view>
 		</view>
@@ -9,19 +10,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { platList } from '@/commons/config'
+import { openUrl } from '@/commons/utils'
 
 export default Vue.extend({
 	data() {
 		return {
 			searchValue: '',
-			platList: [
-				{ name: '腾讯', url: 'https://v.qq.com/' },
-				{ name: '优酷', url: 'https://youku.com/' },
-				{ name: '爱奇艺', url: 'https://www.iqiyi.com/' },
-				{ name: '芒果', url: 'https://mgtv.com/' },
-				{ name: '腾讯', url: 'https://v.qq.com/' },
-				{ name: '腾讯', url: 'https://v.qq.com/' },
-			],
+			platList,
 		}
 	},
 	onLoad() {
@@ -30,12 +26,15 @@ export default Vue.extend({
 	methods: {
 		onSearch({ value }: any) {
 			console.log('search', value)
+			if (value) {
+				uni.navigateTo({
+					url: '/pages/plat/play?url=' + value,
+				})
+			}
 		},
 		onOpen({ name, url }: any) {
 			console.log('打开', name, url)
-			uni.navigateTo({
-				url: '/pages/plat/index?url=' + url,
-			})
+			openUrl(url)
 		},
 	},
 })
@@ -43,7 +42,13 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .container {
-	padding: 300rpx 0 60rpx;
+	padding: 100rpx 0 60rpx;
+
+	.logo {
+		margin: 60rpx auto 100rpx;
+		font-size: 54rpx;
+		text-align: center;
+	}
 
 	.plat-list {
 		display: flex;

@@ -23,14 +23,14 @@ export default Vue.extend({
     },
   },
   onLoad({ url }: AnyObject) {
-    this.url = 'https://baidu.com' || url
+    this.url = url
   },
   onShow() {
     this.$nextTick(() => {
       const q = uni.createSelectorQuery()
       q.select('#bottom').boundingClientRect(({ top }) => {
         console.log('234434', top)
-        this.webviewHeight = top || 584;
+        this.webviewHeight = top || 584
       }).exec()
     })
   },

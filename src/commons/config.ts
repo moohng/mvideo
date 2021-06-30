@@ -10,3 +10,12 @@ export const parseUrls = [
   'https://jiexi.380k.com/?url=', // 维护更新
   'https://vip.52jiexi.top/?url=', // 打不开
 ]
+
+export const platList = [
+  { name: '腾讯', url: 'https://v.qq.com/' },
+  { name: '优酷', url: 'https://youku.com/' },
+  { name: '爱奇艺', url: 'https://www.iqiyi.com/' },
+  { name: '芒果', url: 'https://mgtv.com/' },
+  { name: '腾讯', url: 'https://v.qq.com/' },
+  { name: '腾讯', url: 'https://v.qq.com/' },
+]
