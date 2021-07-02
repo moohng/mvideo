@@ -9,7 +9,7 @@ export const parseUrls = [
   'http://qutaoq.com/huaxiayingmeng/?url=', // 广告
   'https://jiexi.380k.com/?url=', // 维护更新
   'https://vip.52jiexi.top/?url=', // 打不开
-]
+];
 
 export const platList = [
   { name: '腾讯', url: 'https://v.qq.com/' },
@@ -18,4 +18,4 @@ export const platList = [
   { name: '芒果', url: 'https://mgtv.com/' },
   { name: '腾讯', url: 'https://v.qq.com/' },
   { name: '腾讯', url: 'https://v.qq.com/' },
-]
+];

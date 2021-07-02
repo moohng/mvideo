@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-30 13:45:05
+ * @LastEditTime: 2021-07-01 17:04:13
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \mvideo\src\pages\plat\index.vue
+-->
 <template>
   <view>
     <web-view class="webview" :src="url" :style="webviewStyle"></web-view>
@@ -8,40 +16,42 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 
 export default Vue.extend({
   data() {
     return {
       url: '',
       webviewHeight: 584,
-    }
+    };
   },
   computed: {
     webviewStyle(): string {
-      return `height: ${this.webviewHeight}px`
+      return `height: ${this.webviewHeight}px`;
     },
   },
   onLoad({ url }: AnyObject) {
-    this.url = url
+    this.url = url;
   },
   onShow() {
     this.$nextTick(() => {
-      const q = uni.createSelectorQuery()
-      q.select('#bottom').boundingClientRect(({ top }) => {
-        console.log('234434', top)
-        this.webviewHeight = top || 584
-      }).exec()
-    })
+      const q = uni.createSelectorQuery();
+      q.select('#bottom')
+        .boundingClientRect(({ top }) => {
+          console.log('234434', top);
+          this.webviewHeight = top || 584;
+        })
+        .exec();
+    });
   },
   methods: {
     onPlay() {
       uni.navigateTo({
         url: '/pages/plat/play?url=' + 'https://v.qq.com/x/cover/mzc00200mykcc34.html',
-      })
+      });
     },
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
